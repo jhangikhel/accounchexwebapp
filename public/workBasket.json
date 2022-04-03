@@ -1,0 +1,10 @@
+{ "organizationColumns": [
+    { "id": "id", "label": "Organization Id", "minWidth": 170 },
+    { "id": "name", "label": "Entity Name", "minWidth": 170 },
+    { "id": "taxId", "label": "Tax Id", "minWidth": 170 },
+    { "id": "phoneNo", "label": "Phn NO.", "minWidth": 170 },
+    { "id": "medicareNo", "label": "Medicare No", "minWidth": 170 },
+    { "id": "npi", "label": "NPI", "minWidth": 170 },
+    { "id": "address", "label": "Address", "minWidth": 170 }
+  ]
+}
