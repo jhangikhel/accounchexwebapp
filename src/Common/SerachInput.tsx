@@ -9,10 +9,13 @@ import DirectionsIcon from '@mui/icons-material/Directions';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 export default function SerachInput() {
     return (
+        <>
+        
         <Paper
             component="form"
             sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', width: 1000 }}
         >
+            
             <IconButton type="submit" sx={{ p: '10px' }} aria-label="search">
                 <SearchIcon />
             </IconButton>
@@ -28,5 +31,6 @@ export default function SerachInput() {
                 <MoreHorizIcon />
             </IconButton>
         </Paper>
+        </>
     );
 }

@@ -157,7 +157,7 @@ const Header: React.FC = ({ children }) => {
                     sx={{
                         backgroundColor: (theme) =>
                             theme.palette.mode === 'light'
-                                ? theme.palette.grey[100]
+                                ? "#fff"
                                 : theme.palette.grey[900],
                         flexGrow: 1,
                         height: '100vh',
@@ -171,6 +171,8 @@ const Header: React.FC = ({ children }) => {
                             spacing={3}
                             direction="column"
                             mt={1}
+                            alignContent="center"
+                            justifyContent={'center'}
                             style={{ minHeight: '80vh' }}
                         >
                             {children}
