@@ -8,13 +8,17 @@ import TabContext from '@mui/lab/TabContext';
 import TabPanel from '@mui/lab/TabPanel';
 import Grid from '@mui/material/Grid';
 import { styled } from '@mui/material/styles';
+
 import Paper from '@mui/material/Paper';
 import CustomTable from './CustomTable';
 import { WorkBasket } from '../Data/WorkBasket'
 import FilterDropdown from './FilterDropdown';
 import TextField from '@mui/material/TextField';
+
 import MenuItem from '@mui/material/MenuItem';
+
 import Select, { SelectChangeEvent } from '@mui/material/Select';
+
 import InputBase from '@mui/material/InputBase';
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
@@ -24,63 +28,6 @@ import DirectionsIcon from '@mui/icons-material/Directions';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import CustomButton from './CustomButton';
 import { makeStyles } from '@mui/styles';
-import { Button, colors } from '@mui/material';
-
-
- 
-
-const useStyles = makeStyles({
-    root: {
-      border: 0,
-      color: 'white',
-      height: "100%",
-      width:"100%",
-      display:"flex",
-      
-       
-    },
-
-    inputHolder:{
-        border:"1px #529535 solid",
-        borderRadius:"50px",         
-    },
-    searchIcon:{
-        color: "#529535",
-    },
-    moreIcon:{
-        color: "#fff",
-        background:"#529535",
-        fontSize: "30px",
-        borderRadius: "50px",         
-        padding:"8px 25px", 
-        "&:hover":{
-            background:"#458429", 
-        }
-    },
-
-    tabs:{
-        "& .MuiButtonBase-root.MuiTab-root": {
-            color: "#000",
-            
-            "& svg":{
-                color:"#529535 !important",
-            },
-            
-          },
-
-
-            "& .Mui-selected":{
-                fontWeight:"bold",
-            },
-
-
-        "& .MuiTabs-indicator": {
-             backgroundColor: "#008BBF"
-          }
-    }
-
-
-  });
 
 
 const Item = styled(Paper)(({ theme }) => ({
@@ -88,7 +35,6 @@ const Item = styled(Paper)(({ theme }) => ({
     ...theme.typography.body2,
     padding: theme.spacing(1),
     textAlign: 'left',
-    boxShadow:"none",
     color: theme.palette.text.secondary,
 }));
 const ItemRight = styled(Paper)(({ theme }) => ({
@@ -115,15 +61,16 @@ export default function CenteredTabs() {
     };
 
     return (
-       <Box className={classes.root} justifyContent="center" alignContent={'center'} >
+       <Grid container className={classes.root}
+        >
             {showHcp === false ?
-                <Grid item xs={12} >
-                       <Paper elevation={0}  className={classes.inputHolder}
+                <Grid item xs={12} md={12} style={{height:"100%", }} alignContent="center" justifyContent={'center'}>
+                    <Item>   <Paper elevation={0} 
                         component="form"
-                        sx={{ p: '2px 4px ', display: 'flex', alignItems: 'center', width: 1000 }}
+                        sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', width: 1000 }}
                     >
-                        <IconButton type="submit" className={classes.searchIcon} sx={{ p: '10px' }} aria-label="search">
-                            <SearchIcon style={{fontSize:"25px"}} />
+                        <IconButton type="submit" sx={{ p: '10px' }} aria-label="search">
+                            <SearchIcon />
                         </IconButton>
 
                         <InputBase
@@ -133,20 +80,18 @@ export default function CenteredTabs() {
                         />
 
                         <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />
-                        
-                        <IconButton className={classes.moreIcon} onClick={() => setShowHcp(true)} color="primary" sx={{ p: '10px' }} aria-label="directions">
-                            <MoreHorizIcon style={{fontSize:"25px"}} />
-                        </IconButton> 
-                    </Paper> 
-                    </Grid>
+                        <IconButton onClick={() => setShowHcp(true)} color="primary" sx={{ p: '10px' }} aria-label="directions">
+                            <MoreHorizIcon />
+                        </IconButton>
+                    </Paper></Item>
+                </Grid>
                 :
-                <Grid item xs={12} alignContent="flex-start" justifyContent={'flex-start'}>
                 <TabContext value={value}>
                     <Box sx={{ width: '100%', bgcolor: 'background.paper' }}>
-                        <Tabs value={value} onChange={handleChange} centered  className={classes.tabs}>
+                        <Tabs value={value} onChange={handleChange} centered>
                             <Tab iconPosition="start" icon={<GroupWorkIcon />} label="Organization (HCO)" value="1" />
                             <Tab iconPosition="start" icon={<MedicalServicesIcon />} value="2" label="Facility (HCF)" />
-                            <Tab iconPosition="start" icon={<MedicalServicesIcon />}   value="3" label="Professional (HCP)" />
+                            <Tab iconPosition="start" icon={<MedicalServicesIcon />} value="3" label="Professional (HCP)" />
                         </Tabs>
                     </Box>
 
@@ -333,10 +278,9 @@ export default function CenteredTabs() {
                     </TabPanel>
 
                 </TabContext>
-                </Grid>
             }
 
-        </Box>
+        </Grid>
 
     );
 }
