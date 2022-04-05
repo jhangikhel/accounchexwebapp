@@ -22,6 +22,69 @@ import PersonIcon from '@mui/icons-material/Person';
 import { mainListItems } from './ListItems';
 import TextField from '@mui/material/TextField';
 import CenteredTabs from './Tabs';
+import { makeStyles } from '@mui/styles';
+import bgMainImage from '../Content/images/mainBG.jpg';
+
+
+const useStyles = makeStyles({
+    headerAppbar: {
+      padding:"0px 0px",
+      "& .MuiToolbar-root":{
+          paddingLeft:"0px",
+          paddingRight:"0px",
+      },
+       
+    },
+
+    toolbarBtn:{
+        borderRadius:0,
+        height: "100%",
+        margin: "0px 2px",
+        minWidth:"55px",
+        minHeight: "61px",
+        padding: "5px 10px",
+        textAlign:"center",
+        "&:hover":{
+            background:"#76A960",
+           
+        }
+    },
+    toolbarUsername:{
+        fontSize:"16px",
+        fontWeight:"600",
+      
+    },
+    toolbaruserlabel:{
+        fontSize:"13px",
+        display:"block",
+        width:"100%",
+        
+    },
+
+    logoHolder:{
+        background:"#fff",
+        textAlign:"center",
+        
+    },
+    footer:{
+        position:"fixed",
+        width:"100%",
+        padding:"5px 0px",
+        textAlign:"center",
+        bottom:"0px",
+    },
+    mainContainerBg:{
+        backgroundImage:"url('./Content/images/mainBG.jpg')",
+        backgroundRepeat:" no-repeat",
+        backgroundPosition: "right bottom",
+    }
+
+  
+  });
+
+ 
+
+
 function Copyright(props: any) {
     return (
         <Typography variant="body2" color="text.secondary" align="center" {...props}>
@@ -35,7 +98,7 @@ function Copyright(props: any) {
     );
 }
 
-const drawerWidth: number = 240;
+const drawerWidth: number = 220;
 
 interface AppBarProps extends MuiAppBarProps {
     open?: boolean;
@@ -85,35 +148,38 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
     }),
 );
 
+ 
 const mdTheme = createTheme();
 
 const Header: React.FC = ({ children }) => {
 
-
+    const classes = useStyles(); 
 
     return (
         <ThemeProvider theme={mdTheme}>
             <Box sx={{ display: 'flex' }}>
                 <CssBaseline />
-                <AppBar sx={{ background: '#529535E6' }} position="absolute" >
+                <AppBar className={classes.headerAppbar} sx={{ background: '#529535E6' }} position="absolute" elevation={0} >
                     <Toolbar
                         sx={{
                             pr: '24px', // keep right padding when drawer closed
                         }}
                     >
-
+                        <Box className={classes.logoHolder} style={{width:drawerWidth}}>
+                            <img src='./logo.png' style={{minHeight:62,}} />                    
+                        </Box>
                         <Typography
                             component="h1"
                             variant="h6"
                             color="inherit"
                             noWrap
-                            ml={8}
+                            ml={2}
                             sx={{ flexGrow: 2 }}
                         >
                             Welcome to Provider Atlas
                         </Typography>
                         <Box>
-                            <IconButton color="inherit">
+                            <IconButton className={classes.toolbarBtn} color="inherit">
                                 <Badge badgeContent={4} color="secondary">
                                     <NotificationsIcon />
                                 </Badge>
@@ -121,22 +187,16 @@ const Header: React.FC = ({ children }) => {
 
                             </IconButton>
                         </Box>
-                        <IconButton color="inherit">
+                        <IconButton className={classes.toolbarBtn} color="inherit">
                             <InsertDriveFileIcon />
                         </IconButton>
-                        <IconButton color="inherit">
+                        <IconButton className={classes.toolbarBtn} color="inherit">
                             <SettingsIcon />
                         </IconButton>
-                        <IconButton color="inherit">
-                            <PersonIcon />
+                        <IconButton className={classes.toolbarBtn} color="inherit" style={{marginRight:"10px"}}>
+                            <PersonIcon style={{ background:"#76A960", borderRadius:100, padding:"5px", marginRight:"10px", fontSize:"35px"}} />                        
+                                 <div className={classes.toolbarUsername}> Aditiya<span className={classes.toolbaruserlabel}>Dataops</span>  </div> 
                         </IconButton>
-                        <Typography variant="subtitle1">
-                            Gourav Jhangikhel
-                            <br />
-                            <Typography align="center" variant="subtitle2">
-                                Test
-                            </Typography>
-                        </Typography>
                     </Toolbar>
                 </AppBar>
                 <Drawer variant="permanent" sx={{
@@ -166,20 +226,20 @@ const Header: React.FC = ({ children }) => {
                     }}
                 >
                     <Toolbar />
-                    <Container maxWidth="lg" >
-                        <Grid container
+                    <Container>
+                        <Grid className={classes.mainContainerBg} container
                             spacing={3}
                             direction="column"
                             mt={1}
                             alignContent="center"
                             justifyContent={'center'}
-                            style={{ minHeight: '80vh' }}
+                            style={{ minHeight: '92vh', }}
                         >
                             {children}
 
                         </Grid>
                     </Container>
-                    <Copyright sx={{ pt: 4 }} />
+                    <Copyright className={classes.footer} />
 
                 </Box>
             </Box>

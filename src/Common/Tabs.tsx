@@ -35,14 +35,16 @@ const useStyles = makeStyles({
       color: 'white',
       height: "100%",
       width:"100%",
-      display:"flex",
-      
-       
+      display:"flex",             
     },
 
     inputHolder:{
         border:"1px #529535 solid",
-        borderRadius:"50px",         
+        borderRadius:"50px",   
+        padding: '2px 4px ', 
+        display: 'flex', 
+        alignItems: 'center', 
+        width: 1000      
     },
     searchIcon:{
         color: "#529535",
@@ -120,10 +122,10 @@ export default function CenteredTabs() {
                 <Grid item xs={12} >
                        <Paper elevation={0}  className={classes.inputHolder}
                         component="form"
-                        sx={{ p: '2px 4px ', display: 'flex', alignItems: 'center', width: 1000 }}
+                        
                     >
                         <IconButton type="submit" className={classes.searchIcon} sx={{ p: '10px' }} aria-label="search">
-                            <SearchIcon style={{fontSize:"25px"}} />
+                            <SearchIcon style={{fontSize:"35px"}} />
                         </IconButton>
 
                         <InputBase
@@ -135,13 +137,16 @@ export default function CenteredTabs() {
                         <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />
                         
                         <IconButton className={classes.moreIcon} onClick={() => setShowHcp(true)} color="primary" sx={{ p: '10px' }} aria-label="directions">
-                            <MoreHorizIcon style={{fontSize:"25px"}} />
+                            <MoreHorizIcon style={{fontSize:"35px"}} />
                         </IconButton> 
                     </Paper> 
                     </Grid>
                 :
                 <Grid item xs={12} alignContent="flex-start" justifyContent={'flex-start'}>
-                <TabContext value={value}>
+                    <Grid container>
+                        <Grid item xs={3}></Grid>
+                        <Grid item xs={6}>
+                        <TabContext value={value}>
                     <Box sx={{ width: '100%', bgcolor: 'background.paper' }}>
                         <Tabs value={value} onChange={handleChange} centered  className={classes.tabs}>
                             <Tab iconPosition="start" icon={<GroupWorkIcon />} label="Organization (HCO)" value="1" />
@@ -333,6 +338,10 @@ export default function CenteredTabs() {
                     </TabPanel>
 
                 </TabContext>
+                        </Grid>
+                        <Grid item xs={3}></Grid>
+                    </Grid>
+                
                 </Grid>
             }
 
