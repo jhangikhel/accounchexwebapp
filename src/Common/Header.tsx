@@ -22,6 +22,8 @@ import PersonIcon from '@mui/icons-material/Person';
 import { mainListItems } from './ListItems';
 import TextField from '@mui/material/TextField';
 import CenteredTabs from './Tabs';
+import Image from 'next/image'
+import Logo from './../Content/images/logo.png'
 function Copyright(props: any) {
     return (
         <Typography variant="body2" color="text.secondary" align="center" {...props}>
@@ -110,6 +112,7 @@ const Header: React.FC = ({ children }) => {
                             ml={8}
                             sx={{ flexGrow: 2 }}
                         >
+                            <Image src={Logo} width={'50px'} height={'50px'} />
                             Welcome to Provider Atlas
                         </Typography>
                         <Box>

@@ -6,10 +6,7 @@ const Home = () => {
 
     return (
         <div>
-            <Head>
-                <title> Welcome to Provider Atlas 1</title>
-                <meta name="description" content='Provider Atlas'></meta>
-            </Head>
+           
             <CenteredTabs></CenteredTabs>
         </div>
     );
