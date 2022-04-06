@@ -25,6 +25,7 @@ import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import CustomButton from './CustomButton';
 import { makeStyles } from '@mui/styles';
 import { Button, colors } from '@mui/material';
+import Searchbar from './Searchbar';
 
 
  
@@ -120,26 +121,7 @@ export default function CenteredTabs() {
        <Box className={classes.root} justifyContent="center" alignContent={'center'} >
             {showHcp === false ?
                 <Grid item xs={12} >
-                       <Paper elevation={0}  className={classes.inputHolder}
-                        component="form"
-                        
-                    >
-                        <IconButton type="submit" className={classes.searchIcon} sx={{ p: '10px' }} aria-label="search">
-                            <SearchIcon style={{fontSize:"35px"}} />
-                        </IconButton>
-
-                        <InputBase
-                            sx={{ ml: 1, flex: 1 }}
-                            placeholder=""
-                            inputProps={{ 'aria-label': '' }}
-                        />
-
-                        <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />
-                        
-                        <IconButton className={classes.moreIcon} onClick={() => setShowHcp(true)} color="primary" sx={{ p: '10px' }} aria-label="directions">
-                            <MoreHorizIcon style={{fontSize:"35px"}} />
-                        </IconButton> 
-                    </Paper> 
+                        <Searchbar />
                     </Grid>
                 :
                 <Grid item xs={12} alignContent="flex-start" justifyContent={'flex-start'}>
