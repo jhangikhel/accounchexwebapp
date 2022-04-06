@@ -26,6 +26,7 @@ import Image from 'next/image'
 import Logo from './../Content/images/logo.png'
 import { makeStyles } from '@mui/styles';
 import bgMainImage from '../Content/images/mainBG.jpg';
+import Searchbar from './Searchbar';
 
 
 const useStyles = makeStyles({
@@ -39,13 +40,16 @@ const useStyles = makeStyles({
     },
 
     toolbarBtn:{
-        borderRadius:0,
+        borderRadius:0, 
         height: "100%",
         margin: "0px 2px",
         minWidth:"55px",
         minHeight: "61px",
         padding: "5px 10px",
         textAlign:"center",
+        justifyContent:"center",
+        alignItems:"center",            
+
         "&:hover":{
             background:"#76A960",
            
@@ -66,6 +70,11 @@ const useStyles = makeStyles({
     logoHolder:{
         background:"#fff",
         textAlign:"center",
+        "& img":{
+            maxWidth:"100%",
+            maxHeight:"57px",
+           
+        }
         
     },
     footer:{
@@ -76,7 +85,7 @@ const useStyles = makeStyles({
         bottom:"0px",
     },
     mainContainerBg:{
-        backgroundImage:"url('./Content/images/mainBG.jpg')",
+        backgroundImage:'url("$bgMainImage")',
         backgroundRepeat:" no-repeat",
         backgroundPosition: "right bottom",
     }
@@ -169,7 +178,7 @@ const Header: React.FC = ({ children }) => {
                     >
                         <Box className={classes.logoHolder} style={{width:drawerWidth}}>
                             
-                            <Image src={Logo} height={'60px'} width='60px' style={{minHeight:62}}  />                
+                            <Image src={Logo}   />                
                         </Box>
                         <Typography
                             component="h1"
@@ -177,27 +186,33 @@ const Header: React.FC = ({ children }) => {
                             color="inherit"
                             noWrap
                             ml={2}
-                            sx={{ flexGrow: 2 }}
+                            sx={{ flexGrow: 2, fontSize:"26px" }}
                         >
                            
                             Welcome to Provider Atlas
                         </Typography>
                         <Box>
-                            <IconButton className={classes.toolbarBtn} color="inherit">
+                            <Searchbar />
+                        </Box>
+                        <Box>
+                            <IconButton className={classes.toolbarBtn} color="inherit" style={{ flexDirection:"column", display:"flex",}}>
                                 <Badge badgeContent={4} color="secondary">
-                                    <NotificationsIcon />
+                                    <NotificationsIcon /> 
                                 </Badge>
+                                <span style={{ fontSize:"8px", paddingTop:5,}}>Notification</span>
 
 
                             </IconButton>
                         </Box>
-                        <IconButton className={classes.toolbarBtn} color="inherit">
+                        <IconButton className={classes.toolbarBtn} color="inherit" style={{ flexDirection:"column", display:"flex",}}>
                             <InsertDriveFileIcon />
+                            <span style={{ fontSize:"8px", paddingTop:5,}}>Transections</span>
                         </IconButton>
-                        <IconButton className={classes.toolbarBtn} color="inherit">
+                        <IconButton className={classes.toolbarBtn} color="inherit" style={{ flexDirection:"column", display:"flex",}}>
                             <SettingsIcon />
+                            <span style={{ fontSize:"8px", paddingTop:5,}}>Setting</span>
                         </IconButton>
-                        <IconButton className={classes.toolbarBtn} color="inherit" style={{marginRight:"10px"}}>
+                        <IconButton className={classes.toolbarBtn} color="inherit" style={{marginRight:"20px"}}>
                             <PersonIcon style={{ background:"#76A960", borderRadius:100, padding:"5px", marginRight:"10px", fontSize:"35px"}} />                        
                                  <div className={classes.toolbarUsername}> Aditiya<span className={classes.toolbaruserlabel}>Dataops</span>  </div> 
                         </IconButton>
