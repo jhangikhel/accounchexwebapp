@@ -59,7 +59,7 @@ const useStyles = makeStyles({
 export default function CustomButton() {
   const classes = useStyles();
   return (
-    <Stack direction="row" spacing={2}>
+    <Stack direction="row" spacing={4}>
       <Button variant="contained" className={classes.resetBtn} endIcon={<CancelIcon />}>
         Reset
       </Button>

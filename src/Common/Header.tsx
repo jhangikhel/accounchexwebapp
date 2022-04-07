@@ -28,6 +28,7 @@ import { makeStyles } from '@mui/styles';
 import bgMainImage from '../Content/images/mainBG.jpg';
 import Searchbar from './Searchbar';
 
+import { useRouter } from 'next/router';
 
 const useStyles = makeStyles({
     headerAppbar: {
@@ -85,7 +86,7 @@ const useStyles = makeStyles({
         bottom:"0px",
     },
     mainContainerBg:{
-        backgroundImage:'url("$bgMainImage")',
+        backgroundImage:`url(${bgMainImage.src})`,
         backgroundRepeat:" no-repeat",
         backgroundPosition: "right bottom",
     }
@@ -97,6 +98,7 @@ const useStyles = makeStyles({
 
 
 function Copyright(props: any) {
+    console.log(bgMainImage);
     return (
         <Typography variant="body2" color="text.secondary" align="center" {...props}>
             {'Copyright © '}
@@ -163,9 +165,9 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 const mdTheme = createTheme();
 
 const Header: React.FC = ({ children }) => {
-
+    const [showHcp, setShowHcp] = React.useState(false);
     const classes = useStyles(); 
-
+    const router = useRouter()
     return (
         <ThemeProvider theme={mdTheme}>
             <Box sx={{ display: 'flex' }}>
@@ -186,13 +188,14 @@ const Header: React.FC = ({ children }) => {
                             color="inherit"
                             noWrap
                             ml={2}
-                            sx={{ flexGrow: 2, fontSize:"26px" }}
+                            sx={{ flexGrow: 2, fontSize:"22px" }}
                         >
-                           
+                            {router.pathname !== '/' && <Searchbar setShowHcp={setShowHcp} />}
                             Welcome to Provider Atlas
                         </Typography>
                         <Box>
-                            <Searchbar />
+                           
+                            
                         </Box>
                         <Box>
                             <IconButton className={classes.toolbarBtn} color="inherit" style={{ flexDirection:"column", display:"flex",}}>

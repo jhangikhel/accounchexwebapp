@@ -3,7 +3,7 @@ import * as React from 'react';
 type Props = {
     
 };
-export const WorkBaset = (props: Props) => {
+export const Workbasket = (props: Props) => {
     return (
         <div>
             WorkBaset

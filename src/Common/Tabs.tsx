@@ -121,7 +121,7 @@ export default function CenteredTabs() {
        <Box className={classes.root} justifyContent="center" alignContent={'center'} >
             {showHcp === false ?
                 <Grid item xs={12} >
-                        <Searchbar />
+                        <Searchbar setShowHcp={setShowHcp} />
                     </Grid>
                 :
                 <Grid item xs={12} alignContent="flex-start" justifyContent={'flex-start'}>
