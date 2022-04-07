@@ -47,8 +47,12 @@ export default function Searchbar({ setShowHcp = null }: { setShowHcp: any }) {
 
     const classes = useStyles();
     const router = useRouter()
-
-
+    const setHeader = () => {
+        router.push('/Home') 
+    }
+    React.useEffect(() => {
+        sessionStorage.clear();
+    }, [])
     return (
 
         <>
@@ -68,7 +72,7 @@ export default function Searchbar({ setShowHcp = null }: { setShowHcp: any }) {
 
                 <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />
 
-                <IconButton className={classes.moreIcon} onClick={() => setShowHcp === null ? router.push('/') : setShowHcp(true)} color="primary" sx={{ p: '7px' }} aria-label="directions">
+                <IconButton className={classes.moreIcon} onClick={() => setShowHcp === null ? router.push('/') : setHeader()} color="primary" sx={{ p: '7px' }} aria-label="directions">
                     <MoreHorizIcon style={{ fontSize: "25px" }} />
                 </IconButton>
             </Paper>

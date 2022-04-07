@@ -26,7 +26,7 @@ import CustomButton from './CustomButton';
 import { makeStyles } from '@mui/styles';
 import { Button, colors } from '@mui/material';
 import Searchbar from './Searchbar';
-
+import { useRouter } from 'next/router'
 
  
 
@@ -112,14 +112,14 @@ export default function CenteredTabs() {
     const [value, setValue] = React.useState('3');
     const [showHcp, setShowHcp] = React.useState(false);
     const classes = useStyles();
-
+    const router = useRouter()
     const handleChange = (event: React.SyntheticEvent, newValue: string) => {
         setValue(newValue);
     };
 
     return (
        <Box className={classes.root} justifyContent="center" alignContent={'center'} >
-            {showHcp === false ?
+            {router.pathname === '/' ?
                 <Grid item xs={12} >
                         <Searchbar setShowHcp={setShowHcp} />
                     </Grid>

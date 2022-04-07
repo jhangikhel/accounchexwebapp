@@ -32,69 +32,69 @@ import { useRouter } from 'next/router';
 
 const useStyles = makeStyles({
     headerAppbar: {
-      padding:"0px 0px",
-      "& .MuiToolbar-root":{
-          paddingLeft:"0px",
-          paddingRight:"0px",
-      },
-       
+        padding: "0px 0px",
+        "& .MuiToolbar-root": {
+            paddingLeft: "0px",
+            paddingRight: "0px",
+        },
+
     },
 
-    toolbarBtn:{
-        borderRadius:0, 
+    toolbarBtn: {
+        borderRadius: 0,
         height: "100%",
         margin: "0px 2px",
-        minWidth:"55px",
+        minWidth: "55px",
         minHeight: "61px",
         padding: "5px 10px",
-        textAlign:"center",
-        justifyContent:"center",
-        alignItems:"center",            
+        textAlign: "center",
+        justifyContent: "center",
+        alignItems: "center",
 
-        "&:hover":{
-            background:"#76A960",
-           
+        "&:hover": {
+            background: "#76A960",
+
         }
     },
-    toolbarUsername:{
-        fontSize:"16px",
-        fontWeight:"600",
-      
+    toolbarUsername: {
+        fontSize: "16px",
+        fontWeight: "600",
+
     },
-    toolbaruserlabel:{
-        fontSize:"13px",
-        display:"block",
-        width:"100%",
-        
+    toolbaruserlabel: {
+        fontSize: "13px",
+        display: "block",
+        width: "100%",
+
     },
 
-    logoHolder:{
-        background:"#fff",
-        textAlign:"center",
-        "& img":{
-            maxWidth:"100%",
-            maxHeight:"57px",
-           
+    logoHolder: {
+        background: "#fff",
+        textAlign: "center",
+        "& img": {
+            maxWidth: "100%",
+            maxHeight: "57px",
+
         }
-        
+
     },
-    footer:{
-        position:"fixed",
-        width:"100%",
-        padding:"5px 0px",
-        textAlign:"center",
-        bottom:"0px",
+    footer: {
+        position: "fixed",
+        width: "100%",
+        padding: "5px 0px",
+        textAlign: "center",
+        bottom: "0px",
     },
-    mainContainerBg:{
-        backgroundImage:`url(${bgMainImage.src})`,
-        backgroundRepeat:" no-repeat",
+    mainContainerBg: {
+        backgroundImage: `url(${bgMainImage.src})`,
+        backgroundRepeat: " no-repeat",
         backgroundPosition: "right bottom",
     }
 
-  
-  });
 
- 
+});
+
+
 
 
 function Copyright(props: any) {
@@ -161,13 +161,18 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
     }),
 );
 
- 
+
 const mdTheme = createTheme();
 
 const Header: React.FC = ({ children }) => {
     const [showHcp, setShowHcp] = React.useState(false);
-    const classes = useStyles(); 
-    const router = useRouter()
+    const classes = useStyles();
+    const router = useRouter();
+    const getHeader = () => {
+        if (typeof window !== 'undefined') {
+            return router.pathname !== '/' ? <Searchbar setShowHcp={setShowHcp} /> : "Welcome to Provider Atlas"
+        }
+    }
     return (
         <ThemeProvider theme={mdTheme}>
             <Box sx={{ display: 'flex' }}>
@@ -178,9 +183,9 @@ const Header: React.FC = ({ children }) => {
                             pr: '24px', // keep right padding when drawer closed
                         }}
                     >
-                        <Box className={classes.logoHolder} style={{width:drawerWidth}}>
-                            
-                            <Image src={Logo}   />                
+                        <Box className={classes.logoHolder} style={{ width: drawerWidth }}>
+
+                            <Image src={Logo} />
                         </Box>
                         <Typography
                             component="h1"
@@ -188,36 +193,36 @@ const Header: React.FC = ({ children }) => {
                             color="inherit"
                             noWrap
                             ml={2}
-                            sx={{ flexGrow: 2, fontSize:"22px" }}
+                            sx={{ flexGrow: 2, fontSize: "22px" }}
                         >
-                            {router.pathname !== '/' && <Searchbar setShowHcp={setShowHcp} />}
-                            Welcome to Provider Atlas
+                            {getHeader()}
+
                         </Typography>
                         <Box>
-                           
-                            
+
+
                         </Box>
                         <Box>
-                            <IconButton className={classes.toolbarBtn} color="inherit" style={{ flexDirection:"column", display:"flex",}}>
+                            <IconButton className={classes.toolbarBtn} color="inherit" style={{ flexDirection: "column", display: "flex", }}>
                                 <Badge badgeContent={4} color="secondary">
-                                    <NotificationsIcon /> 
+                                    <NotificationsIcon />
                                 </Badge>
-                                <span style={{ fontSize:"8px", paddingTop:5,}}>Notification</span>
+                                <span style={{ fontSize: "8px", paddingTop: 5, }}>Notification</span>
 
 
                             </IconButton>
                         </Box>
-                        <IconButton className={classes.toolbarBtn} color="inherit" style={{ flexDirection:"column", display:"flex",}}>
+                        <IconButton className={classes.toolbarBtn} color="inherit" style={{ flexDirection: "column", display: "flex", }}>
                             <InsertDriveFileIcon />
-                            <span style={{ fontSize:"8px", paddingTop:5,}}>Transections</span>
+                            <span style={{ fontSize: "8px", paddingTop: 5, }}>Transections</span>
                         </IconButton>
-                        <IconButton className={classes.toolbarBtn} color="inherit" style={{ flexDirection:"column", display:"flex",}}>
+                        <IconButton className={classes.toolbarBtn} color="inherit" style={{ flexDirection: "column", display: "flex", }}>
                             <SettingsIcon />
-                            <span style={{ fontSize:"8px", paddingTop:5,}}>Setting</span>
+                            <span style={{ fontSize: "8px", paddingTop: 5, }}>Setting</span>
                         </IconButton>
-                        <IconButton className={classes.toolbarBtn} color="inherit" style={{marginRight:"20px"}}>
-                            <PersonIcon style={{ background:"#76A960", borderRadius:100, padding:"5px", marginRight:"10px", fontSize:"35px"}} />                        
-                                 <div className={classes.toolbarUsername}> Aditiya<span className={classes.toolbaruserlabel}>Dataops</span>  </div> 
+                        <IconButton className={classes.toolbarBtn} color="inherit" style={{ marginRight: "20px" }}>
+                            <PersonIcon style={{ background: "#76A960", borderRadius: 100, padding: "5px", marginRight: "10px", fontSize: "35px" }} />
+                            <div className={classes.toolbarUsername}> Aditiya<span className={classes.toolbaruserlabel}>Dataops</span>  </div>
                         </IconButton>
                     </Toolbar>
                 </AppBar>
@@ -231,7 +236,7 @@ const Header: React.FC = ({ children }) => {
 
                     <Divider />
                     <List sx={{ color: 'white' }} component="nav">
-                       {mainListItems} 
+                        {mainListItems}
                     </List>
                 </Drawer>
                 <Box
