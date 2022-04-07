@@ -1,4 +1,6 @@
-
+*{
+  font-family:"Museo Sans 700" !important;
+}
 
 
 @keyframes App-logo-spin {

@@ -27,7 +27,8 @@ import Logo from './../Content/images/logo.png'
 import { makeStyles } from '@mui/styles';
 import bgMainImage from '../Content/images/mainBG.jpg';
 import Searchbar from './Searchbar';
-
+import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
+import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
 import { useRouter } from 'next/router';
 
 const useStyles = makeStyles({
@@ -73,7 +74,7 @@ const useStyles = makeStyles({
         textAlign: "center",
         "& img": {
             maxWidth: "100%",
-            maxHeight: "57px",
+            maxHeight: "60px",
 
         }
 
@@ -238,6 +239,15 @@ const Header: React.FC = ({ children }) => {
                     <List sx={{ color: 'white' }} component="nav">
                         {mainListItems}
                     </List>
+                    
+                    <Box style={{textAlign:"center", position:"absolute", width:"100%", bottom:0}}>
+                        <IconButton>
+                            <InfoOutlinedIcon  style={{color:"#ffffff", fontSize:35}} />
+                        </IconButton>
+                        <IconButton>
+                            <EmailOutlinedIcon  style={{color:"#ffffff", fontSize:35}} />
+                        </IconButton>
+                    </Box>
                 </Drawer>
                 <Box
                     component="main"
@@ -253,7 +263,7 @@ const Header: React.FC = ({ children }) => {
                     }}
                 >
                     <Toolbar />
-                    <Container>
+                    <Container maxWidth='false' >
                         <Grid className={classes.mainContainerBg} container
                             spacing={3}
                             direction="column"
