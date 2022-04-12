@@ -20,7 +20,8 @@ const useStyles = makeStyles({
         padding: '2px 4px ',
         display: 'flex',
         alignItems: 'center',
-        width: '500px'
+        width: '500px',
+        margin:"auto",
     },
     searchIcon: {
         color: "#529535",

@@ -46,7 +46,7 @@ const useStyles = makeStyles({
         height: "100%",
         margin: "0px 2px",
         minWidth: "55px",
-        minHeight: "61px",
+        minHeight: "70px",
         padding: "5px 10px",
         textAlign: "center",
         justifyContent: "center",
@@ -74,7 +74,7 @@ const useStyles = makeStyles({
         textAlign: "center",
         "& img": {
             maxWidth: "100%",
-            maxHeight: "60px",
+            maxHeight: "70px",
 
         }
 
