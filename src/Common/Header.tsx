@@ -239,13 +239,13 @@ const Header: React.FC = ({ children }) => {
                     <List sx={{ color: 'white' }} component="nav">
                         {mainListItems}
                     </List>
-                    
-                    <Box style={{textAlign:"center", position:"absolute", width:"100%", bottom:0}}>
+
+                    <Box style={{ textAlign: "center", position: "absolute", width: "100%", bottom: 0 }}>
                         <IconButton>
-                            <InfoOutlinedIcon  style={{color:"#ffffff", fontSize:35}} />
+                            <InfoOutlinedIcon style={{ color: "#ffffff", fontSize: 35 }} />
                         </IconButton>
                         <IconButton>
-                            <EmailOutlinedIcon  style={{color:"#ffffff", fontSize:35}} />
+                            <EmailOutlinedIcon style={{ color: "#ffffff", fontSize: 35 }} />
                         </IconButton>
                     </Box>
                 </Drawer>
@@ -264,7 +264,7 @@ const Header: React.FC = ({ children }) => {
                 >
                     <Toolbar />
                     <Container maxWidth='false' >
-                        <Grid className={classes.mainContainerBg} container
+                        <Grid className={router.pathname === '/' ? classes.mainContainerBg : ''} container
                             spacing={3}
                             direction="column"
                             mt={1}
@@ -280,7 +280,7 @@ const Header: React.FC = ({ children }) => {
 
                 </Box>
             </Box>
-        </ThemeProvider>
+        </ThemeProvider >
     );
 }
 

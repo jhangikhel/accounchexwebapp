@@ -45,7 +45,7 @@ const useStyles = makeStyles({
         padding: '2px 4px ', 
         display: 'flex', 
         alignItems: 'center', 
-        width: 1000      
+        width: 1050
     },
     searchIcon:{
         color: "#529535",
@@ -126,8 +126,8 @@ export default function CenteredTabs() {
                 :
                 <Grid item xs={12} alignContent="flex-start" justifyContent={'flex-start'}>
                     <Grid container>
-                        <Grid item xs={3}></Grid>
-                        <Grid item xs={6}>
+                        <Grid item xs={2}></Grid>
+                        <Grid item xs={8}>
                         <TabContext value={value}>
                     <Box sx={{ width: '100%', bgcolor: 'background.paper' }}>
                         <Tabs value={value} onChange={handleChange} centered  className={classes.tabs}>
@@ -321,7 +321,7 @@ export default function CenteredTabs() {
 
                 </TabContext>
                         </Grid>
-                        <Grid item xs={3}></Grid>
+                        <Grid item xs={2}></Grid>
                     </Grid>
                 
                 </Grid>
