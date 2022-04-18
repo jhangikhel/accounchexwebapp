@@ -13,7 +13,7 @@ export default function SerachInput() {
         
         <Paper
             component="form"
-            sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', width: 500 }}
+            sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', width: 500, marginTop:'400px' }}
         >
             
             <IconButton type="submit" sx={{ p: '10px' }} aria-label="search">
