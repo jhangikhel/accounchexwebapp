@@ -8,27 +8,48 @@ import { makeStyles } from "@mui/styles";
 import Avatar from '@mui/material/Avatar';
 import Stack from '@mui/material/Stack';
 import Grid from '@mui/material/Grid';
+import { IconButton } from "@mui/material";
+import BarChartIcon from '@mui/icons-material/BarChart';
+
 
 const useStyles = makeStyles({
 
   vrTabsHolder:{
+    background:"#f1f1f1",
+    position:"relative",
+  },
+
+
+  tabsSlideBtn:{
+    position:"relative",
+    height:40,
+    transform:"rotate(90deg)",
+    left:"-20px",
+    top:5,
     background:"#fff",
+    marginRight: "-28px",
+    boxShadow: "0px 3px 6px #00000029",
+
+    "&:hover":{
+      background:"#f1f1f1",
+    },
   },
 
   tabs: {
+    background:"#fff",
     "& .MuiButtonBase-root.MuiTab-root": {
       color: "#000",
       textAlign: "left !important",
       justifyContent: "flex-start",
       alignItems: "flex-start",
-      borderLeft: "2px #ffffff solid",
-      borderRight: "0px !important",
+      border: "1px #ffffff solid",      
+      marginRight:"2px",
     },
 
     "& .Mui-selected": {
       fontWeight: "bold",
-      borderLeft: "2px #529535 solid !important",
-      borderRight: "0px !important",
+      border: "1px #d6e6cf solid !important",
+      borderRadius:"3px",
     },
 
     "& .MuiTabs-indicator": {
@@ -40,6 +61,7 @@ const useStyles = makeStyles({
       left: "0px",
       width:5,
       backgroundColor: "#529535",
+      borderRadius:"5px",
     },
   },
 
@@ -141,11 +163,12 @@ export default function VerticalTabs() {
         sx={{
           flexGrow: 1,
           bgcolor: "background.paper",
-          display: "flex",
-          paddingLeft: "40px",
+          display: "flex",          
           height:"calc(100vh - 160px)",
         }}
       >
+
+
         <Tabs
           className={classes.tabs}
           orientation="vertical"
@@ -154,6 +177,7 @@ export default function VerticalTabs() {
           onChange={handleChange}
           aria-label="Vertical tabs example"
         >
+ 
           <Tab label="Provider Detail" {...a11yProps(0)} />
           <Tab label="Credentails" {...a11yProps(1)} />
           <Tab label="Org Relationship" {...a11yProps(2)} />
@@ -163,6 +187,9 @@ export default function VerticalTabs() {
           <Tab label="Notes" {...a11yProps(6)} />
           <Tab label="Documents" {...a11yProps(7)} />
         </Tabs>
+        <IconButton className={classes.tabsSlideBtn}>
+          <BarChartIcon style={{color:"#008BBF"}}/>
+        </IconButton>
         <TabPanel value={value} index={0} className={classes.tabsPanels}>
 
            {/* inner code start panel */}
