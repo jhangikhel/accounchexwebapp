@@ -30,7 +30,7 @@ const useStyles = makeStyles({
     }
 });
 
-const drawerWidth: number = 220;
+const drawerWidth = 220;
 const mdTheme = createTheme();
 
 const Header: React.FC = ({ children }) => {
@@ -50,7 +50,7 @@ const Header: React.FC = ({ children }) => {
             <Box sx={{ display: 'flex' }}>
                 <CssBaseline />
                 <HeaderAppBar drawerWidth={drawerWidth} />
-           <HeaderDrawer drawerWidth={drawerWidth} />
+                <HeaderDrawer drawerWidth={drawerWidth} />
                 <Box
                     component="main"
                     sx={{
@@ -61,7 +61,7 @@ const Header: React.FC = ({ children }) => {
                         flexGrow: 1,
                         height: '100vh',
                         overflow: 'auto',
-                        ml: 20
+                    
                     }}
                 >
                     <Toolbar />
@@ -72,7 +72,7 @@ const Header: React.FC = ({ children }) => {
                             mt={1}
                             alignContent="center"
                             justifyContent={'flex-start'}
-                            style={{ minHeight: '92vh', paddingTop: padding }}
+                            style={{ minHeight: '92vh', paddingTop: padding, }}
                         >
                             {children}
 

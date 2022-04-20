@@ -31,8 +31,8 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 
 const HeaderDrawer = ({drawerWidth}) => {
     return (
-        <Drawer variant="permanent" drawerWidth={drawerWidth} sx={{
-            width: 20,
+        <Drawer variant="permanent" sx={{
+            width: drawerWidth,
             flexShrink: 0,
             marginTop: 8,
             [`& .MuiDrawer-paper`]: { width: drawerWidth, boxSizing: 'border-box', background: '#003863' },

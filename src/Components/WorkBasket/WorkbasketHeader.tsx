@@ -47,7 +47,7 @@ export default function WorkbasketHeader() {
 <>
 <Box className={classes.workHeaderBoxHolder}>
   <Grid container>
-    <Grid item xs={12} md={7} style={{display:"flex",}} justifyContent="space-evenly" alignItems="flex-start" >
+    <Grid item xs={12} sm={12} md={7} style={{display:"flex",}} justifyContent="space-evenly" alignItems="flex-start" >
       <Box className={classes.workHeaderBox}>
         <label>Prefix</label>
         Mr.
@@ -84,7 +84,7 @@ export default function WorkbasketHeader() {
 
 
     </Grid>
-    <Grid item xs={12}  md={5}  spacing={2}>
+    <Grid item xs={12}   sm={12}  md={5}  spacing={2}>
       <Grid container>
         <Grid item xs={12} md={5} justifyContent="flex-end"> <TextField fullWidth  label="License" style={{width:"95%"}}  size="small"  /> </Grid>  
         <Grid item xs={12} md={5} justifyContent="flex-end"><TextField fullWidth  label="License" style={{width:"95%"}} size="small"  /> </Grid>  
