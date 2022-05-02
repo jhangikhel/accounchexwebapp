@@ -8,7 +8,7 @@ import { makeStyles } from "@mui/styles";
 import Avatar from '@mui/material/Avatar';
 import Stack from '@mui/material/Stack';
 import Grid from '@mui/material/Grid';
-import { IconButton } from "@mui/material";
+import { Card, IconButton } from "@mui/material";
 import BarChartIcon from '@mui/icons-material/BarChart';
 
 
@@ -50,6 +50,7 @@ const useStyles = makeStyles({
       fontWeight: "bold",
       border: "1px #d6e6cf solid !important",
       borderRadius:"3px",
+      color:"#529535 !important",
     },
 
     "& .MuiTabs-indicator": {
@@ -111,7 +112,41 @@ const useStyles = makeStyles({
       borderRadius:"3px",
 
     }
-  }
+  },
+
+  panelInfoCard:{
+      padding:"15px 15px 0px 15px",
+      
+  },
+
+  panelInfoCardContent:{
+    display:"flex",
+    flexDirection:"column",
+    marginBottom:"15px",
+    "& span":{
+          fontSize:"12px",
+          color:"#ccc",
+    },
+    "& label":{
+      fontSize:"16px",
+      color:"#000000",
+      fontWeight:"600",
+    }
+  },
+
+  cardTitle:{
+      color:"#008BBF",
+      fontSize:"14px",
+      fontWeight:"500",
+      marginBottom:15,
+      "& span":{
+        height:"2px",
+        background:"#008BBF",
+        width:"60px",
+        display:"block",
+        marginTop:"5px",
+      }
+  },
 
 
 });
@@ -327,6 +362,57 @@ export default function VerticalTabs() {
 
         </TabPanel>
         <TabPanel value={value} index={1}  className={classes.tabsPanels}>
+
+
+            {/* second tab start panel */}
+
+            <Card elevation={2} className={classes.panelInfoCard}>
+              <Grid container>
+                <Grid item md={2}>
+                  <Box className={classes.panelInfoCardContent}>
+                      <h3>Internal Medicne</h3>
+                  </Box>
+                  <Box className={classes.panelInfoCardContent}>
+                    <span>Dgree preiod</span>
+                    <label>12/06/2022</label>
+                  </Box>
+                </Grid>
+                <Grid item md={6}>
+                  <Box className={classes.panelInfoCardContent}>
+                    <span>Dgree Name</span>
+                    <label>M.D in Sleep Medicne</label>
+                  </Box>
+
+                  <Box className={classes.panelInfoCardContent}>
+                    <span>Certification </span>
+                    <label>American Board of Medical Speatility  (ABMS)</label>
+                  </Box>
+
+                </Grid>
+                <Grid item md={2}>
+                <div className={classes.cardTitle}>More Info <span></span></div>
+                  <Box className={classes.panelInfoCardContent}>                   
+                    <label>Recideanship</label>
+                    <label>Intersheep</label>
+                    <label>Fellow Ship</label>
+                  </Box>
+                </Grid>
+                <Grid item md={2}>
+                <div className={classes.cardTitle}>Verification <span></span></div>
+                    <Box className={classes.panelInfoCardContent}>                  
+                    <span>Specility</span>
+                    <label>Ayana Kelly</label>
+                  </Box>
+                  <Box className={classes.panelInfoCardContent}>                  
+                    <span>Date & Time</span>
+                    <label>21/04/2022 - 22/04/2022</label>
+                  </Box>
+
+                </Grid>
+              </Grid>
+            </Card>
+
+            {/* second tab end panel */}
         
         </TabPanel>
         <TabPanel value={value} index={2}  className={classes.tabsPanels}>
