@@ -119,7 +119,6 @@ const useStyles = makeStyles({
 
   },
 
-<<<<<<< HEAD
   panelInfoCardContent:{
     display:"flex",
     flexDirection:"column",
@@ -128,15 +127,6 @@ const useStyles = makeStyles({
     "& span":{
           fontSize:"12px",
           color:"#ccc",
-=======
-  panelInfoCardContent: {
-    display: "flex",
-    flexDirection: "column",
-    marginBottom: "15px",
-    "& span": {
-      fontSize: "12px",
-      color: "#ccc",
->>>>>>> 13439dd25f7fac565b80e087cddc988a825aa65a
     },
     "& label": {
       fontSize: "16px",
@@ -380,7 +370,6 @@ export default function VerticalTabs() {
           {/* inner code end panel */}
 
         </TabPanel>
-<<<<<<< HEAD
         <TabPanel value={value} index={1}  className={classes.tabsPanels}>
 
 
@@ -435,55 +424,6 @@ export default function VerticalTabs() {
                   </div>
 
                 </Grid>
-=======
-        <TabPanel value={value} index={1} className={classes.tabsPanels}>
-
-
-          {/* second tab start panel */}
-
-          <Card elevation={2} className={classes.panelInfoCard}>
-            <Grid container>
-              <Grid item md={2}>
-                <Box className={classes.panelInfoCardContent}>
-                  <h3>Internal Medicne</h3>
-                </Box>
-                <Box className={classes.panelInfoCardContent}>
-                  <span>Dgree preiod</span>
-                  <label>12/06/2022</label>
-                </Box>
-              </Grid>
-              <Grid item md={6}>
-                <Box className={classes.panelInfoCardContent}>
-                  <span>Dgree Name</span>
-                  <label>M.D in Sleep Medicne</label>
-                </Box>
-
-                <Box className={classes.panelInfoCardContent}>
-                  <span>Certification </span>
-                  <label>American Board of Medical Speatility  (ABMS)</label>
-                </Box>
-
-              </Grid>
-              <Grid item md={2}>
-                <div className={classes.cardTitle}>More Info <span></span></div>
-                <Box className={classes.panelInfoCardContent}>
-                  <label>Recideanship</label>
-                  <label>Intersheep</label>
-                  <label>Fellow Ship</label>
-                </Box>
-              </Grid>
-              <Grid item md={2}>
-                <div className={classes.cardTitle}>Verification <span></span></div>
-                <Box className={classes.panelInfoCardContent}>
-                  <span>Specility</span>
-                  <label>Ayana Kelly</label>
-                </Box>
-                <Box className={classes.panelInfoCardContent}>
-                  <span>Date & Time</span>
-                  <label>21/04/2022 - 22/04/2022</label>
-                </Box>
-
->>>>>>> 13439dd25f7fac565b80e087cddc988a825aa65a
               </Grid>
             </Grid>
           </Card>
