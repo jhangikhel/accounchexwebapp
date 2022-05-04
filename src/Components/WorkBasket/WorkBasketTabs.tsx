@@ -123,6 +123,7 @@ const useStyles = makeStyles({
     display:"flex",
     flexDirection:"column",
     marginBottom:"15px",
+     
     "& span":{
           fontSize:"12px",
           color:"#ccc",
@@ -146,6 +147,12 @@ const useStyles = makeStyles({
         display:"block",
         marginTop:"5px",
       }
+  },
+
+  panelInfoCardContentHolder:{
+    borderLeft:"1px #ccc solid",
+    paddingLeft:"15px",
+    height:"90%"
   },
 
 
@@ -367,7 +374,7 @@ export default function VerticalTabs() {
             {/* second tab start panel */}
 
             <Card elevation={2} className={classes.panelInfoCard}>
-              <Grid container>
+              <Grid container spacing={2}>
                 <Grid item md={2}>
                   <Box className={classes.panelInfoCardContent}>
                       <h3>Internal Medicne</h3>
@@ -378,6 +385,7 @@ export default function VerticalTabs() {
                   </Box>
                 </Grid>
                 <Grid item md={6}>
+                  
                   <Box className={classes.panelInfoCardContent}>
                     <span>Dgree Name</span>
                     <label>M.D in Sleep Medicne</label>
@@ -387,17 +395,21 @@ export default function VerticalTabs() {
                     <span>Certification </span>
                     <label>American Board of Medical Speatility  (ABMS)</label>
                   </Box>
+                  
 
                 </Grid>
                 <Grid item md={2}>
+                <div className={classes.panelInfoCardContentHolder}>
                 <div className={classes.cardTitle}>More Info <span></span></div>
                   <Box className={classes.panelInfoCardContent}>                   
                     <label>Recideanship</label>
                     <label>Intersheep</label>
                     <label>Fellow Ship</label>
                   </Box>
+                  </div>
                 </Grid>
                 <Grid item md={2}>
+                <div className={classes.panelInfoCardContentHolder}>
                 <div className={classes.cardTitle}>Verification <span></span></div>
                     <Box className={classes.panelInfoCardContent}>                  
                     <span>Specility</span>
@@ -407,6 +419,7 @@ export default function VerticalTabs() {
                     <span>Date & Time</span>
                     <label>21/04/2022 - 22/04/2022</label>
                   </Box>
+                  </div>
 
                 </Grid>
               </Grid>
