@@ -224,7 +224,7 @@ export default function VerticalTabs() {
             <Tab label="Documents" {...a11yProps(7)} />
           </Tabs>
         }
-        <IconButton onClick={() => setShowTabs(!showTabs)} className={classes.tabsSlideBtn}>
+        <IconButton onClick={() => setShowTabs(!showTabs)} className={showTabs === true ? classes.tabsSlideBtnActive : classes.tabsSlideBtn}>
           <BarChartIcon style={{ color: "#008BBF" }} />
         </IconButton>
         <TabPanel value={value} index={0} className={classes.tabsPanels}>
