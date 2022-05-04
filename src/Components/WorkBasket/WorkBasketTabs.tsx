@@ -101,7 +101,7 @@ const useStyles = makeStyles({
     fontWeight: 500,
     marginBottom: "10px",
     fontSize: "20px",
-    marginBottom: "25px",
+    marginBottom: "25px", 
     color: "#003863",
     "& span": {
       height: "2px",
