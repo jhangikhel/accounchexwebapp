@@ -10,7 +10,7 @@ import Stack from '@mui/material/Stack';
 import Grid from '@mui/material/Grid';
 import { Card, IconButton } from "@mui/material";
 import BarChartIcon from '@mui/icons-material/BarChart';
-
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 
 const useStyles = makeStyles({
 
@@ -397,7 +397,7 @@ export default function VerticalTabs() {
             <Card elevation={2} className={classes.panelInfoCard}>
               <Grid container spacing={2}>
                 <Grid item md={2}>
-                  <Box onClick={() => setshowInternalMedicineDetail(true)} className={classes.panelInfoCardContent}>
+                  <Box onClick={() => setshowInternalMedicineDetail(true)} style={{cursor:'pointer'}} className={classes.panelInfoCardContent}>
                     <h3>Internal Medicne</h3>
                   </Box>
                   <Box className={classes.panelInfoCardContent}>
@@ -503,8 +503,10 @@ export default function VerticalTabs() {
             <Card elevation={2} sx={{ marginTop: '10px' }} className={classes.panelInfoCard}>
               <Grid container spacing={2}>
                 <Grid item md={12}>
-                  <Box className={classes.panelInfoCardContent}>
-                    <h3>Credential</h3>
+                  <Box className={classes.workHeaderBoxTitle}>
+                    <label>Credential</label>
+                    <span></span>
+
                   </Box>
 
                 </Grid>
@@ -553,17 +555,22 @@ export default function VerticalTabs() {
               </Grid>
               <Grid container spacing={2}>
                 <Grid item md={12}>
-                  <Box className={classes.panelInfoCardContent}>
-                    <h3>Education/Training</h3>
+                  <Box className={classes.workHeaderBoxTitle}>
+                    <label>Education/Training</label>
+                    <span></span>
+
                   </Box>
 
                 </Grid>
               </Grid>
               <Grid container spacing={2}>
                 <Grid item md={12}>
-                  <Box className={classes.panelInfoCardContent}>
-                    <h3>Degree Info</h3>
+                  <Box className={classes.workHeaderBoxTitle}>
+                    <label>Degree Info</label>
+                    <span></span>
+
                   </Box>
+
 
                 </Grid>
 
@@ -596,15 +603,21 @@ export default function VerticalTabs() {
 
               <Grid container spacing={2}>
                 <Grid item md={6}>
-                  <Box className={classes.panelInfoCardContent}>
-                    <h3>Residential Info</h3>
+                  <Box className={classes.workHeaderBoxTitle}>
+                    <label>Residential Info</label>
+                    <span></span>
+
                   </Box>
+
 
                 </Grid>
                 <Grid item md={6}>
-                  <Box className={classes.panelInfoCardContent}>
-                    <h3>Fellowship Info</h3>
+                  <Box className={classes.workHeaderBoxTitle}>
+                    <label>Fellowship Info</label>
+                    <span></span>
+
                   </Box>
+
 
                 </Grid>
                 <Grid item md={3}>
@@ -636,15 +649,21 @@ export default function VerticalTabs() {
 
               <Grid container spacing={2}>
                 <Grid item md={6}>
-                  <Box className={classes.panelInfoCardContent}>
-                    <h3>Board Certificate</h3>
+                  <Box className={classes.workHeaderBoxTitle}>
+                    <label>Board Certificate</label>
+                    <span></span>
+
                   </Box>
+
 
                 </Grid>
                 <Grid item md={6}>
-                  <Box className={classes.panelInfoCardContent}>
-                    <h3>Award</h3>
+                  <Box className={classes.workHeaderBoxTitle}>
+                    <label>Award</label>
+                    <span></span>
+
                   </Box>
+
 
                 </Grid>
                 <Grid item md={3}>
@@ -687,13 +706,40 @@ export default function VerticalTabs() {
                 </Grid>
               </Grid>
 
+              <Grid container spacing={2}>
+                <Grid item md={12}>
+                  <Box className={classes.workHeaderBoxTitle}>
+                    <label>Internship Info</label>
+                    <span></span>
 
+                  </Box>
+
+
+                </Grid>
+              
+                <Grid item md={3}>
+                  <Box className={classes.panelInfoCardContent}>
+                    <span>Department </span>
+                    <label>General Medicine</label>
+                  </Box>
+                </Grid>
+                <Grid item md={3}>
+                  <Box className={classes.panelInfoCardContent}>
+                    <span>Internship Period </span>
+                    <label>07/31/1999 - 07/31/2001</label>
+                  </Box>
+                </Grid>
+              
+              </Grid>
 
               <Grid container spacing={2}>
                 <Grid item md={12}>
-                  <Box className={classes.panelInfoCardContent}>
-                    <h3>HF Crendential Details</h3>
+                  <Box className={classes.workHeaderBoxTitle}>
+                    <label>HF Crendential Details</label>
+                    <span></span>
+
                   </Box>
+
 
                 </Grid>
 
@@ -713,7 +759,7 @@ export default function VerticalTabs() {
                 <Grid item md={6}>
                   <Box className={classes.panelInfoCardContent}>
 
-                    <label>National Plan And Provider Enumeration System (NPPES)</label>
+                    <label>National Plan And Provider Enumeration System (NPPES) <sup><CheckCircleIcon color='success' /></sup></label>
                   </Box>
                 </Grid>
                 <Grid item md={6}>
@@ -726,16 +772,10 @@ export default function VerticalTabs() {
                 <Grid item md={6}>
                   <Box className={classes.panelInfoCardContent}>
 
-                    <label>New York State Education Department(NYSED)</label>
+                    <label>New York State Education Department(NYSED)  <sup><CheckCircleIcon color='success' /></sup></label>
                   </Box>
                 </Grid>
-                <Grid item md={3}></Grid>
-                <Grid item md={3}>
-                  <Box className={classes.panelInfoCardContent}>
-                    <span>Award Date</span>
-                    <label>12/13/2009</label>
-                  </Box>
-                </Grid>
+              
               </Grid>
             </Card>
           </>}
