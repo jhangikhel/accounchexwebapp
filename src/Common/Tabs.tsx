@@ -27,63 +27,65 @@ import { makeStyles } from '@mui/styles';
 import { Button, colors } from '@mui/material';
 import Searchbar from './Searchbar';
 import { useRouter } from 'next/router'
+import { useDispatch, useSelector } from 'react-redux';
+import { getRecordById, selectByIds } from '../store/reducers/homeReducers';
 
- 
+
 
 const useStyles = makeStyles({
     root: {
-      border: 0,
-      color: 'white',
-      height: "100%",
-      width:"100%",
-      display:"flex",             
+        border: 0,
+        color: 'white',
+        height: "100%",
+        width: "100%",
+        display: "flex",
     },
 
-    inputHolder:{
-        border:"1px #529535 solid",
-        borderRadius:"50px",   
-        padding: '2px 4px ', 
-        display: 'flex', 
-        alignItems: 'center', 
+    inputHolder: {
+        border: "1px #529535 solid",
+        borderRadius: "50px",
+        padding: '2px 4px ',
+        display: 'flex',
+        alignItems: 'center',
         width: 1050
     },
-    searchIcon:{
+    searchIcon: {
         color: "#529535",
     },
-    moreIcon:{
+    moreIcon: {
         color: "#fff",
-        background:"#529535",
+        background: "#529535",
         fontSize: "30px",
-        borderRadius: "50px",         
-        padding:"8px 25px", 
-        "&:hover":{
-            background:"#458429", 
+        borderRadius: "50px",
+        padding: "8px 25px",
+        "&:hover": {
+            background: "#458429",
         }
     },
 
-    tabs:{
+    tabs: {
         "& .MuiButtonBase-root.MuiTab-root": {
             color: "#000",
-            
-            "& svg":{
-                color:"#529535 !important",
+
+            "& svg": {
+                color: "#529535 !important",
             },
-            
-          },
+
+        },
 
 
-            "& .Mui-selected":{
-                fontWeight:"bold",
-            },
+        "& .Mui-selected": {
+            fontWeight: "bold",
+        },
 
 
         "& .MuiTabs-indicator": {
-             backgroundColor: "#008BBF"
-          }
+            backgroundColor: "#008BBF"
+        }
     }
 
 
-  });
+});
 
 
 const Item = styled(Paper)(({ theme }) => ({
@@ -91,7 +93,7 @@ const Item = styled(Paper)(({ theme }) => ({
     ...theme.typography.body2,
     padding: theme.spacing(1),
     textAlign: 'left',
-    boxShadow:"none",
+    boxShadow: "none",
     color: theme.palette.text.secondary,
 }));
 const ItemRight = styled(Paper)(({ theme }) => ({
@@ -112,218 +114,223 @@ export default function CenteredTabs() {
     const [value, setValue] = React.useState('3');
     const [showHcp, setShowHcp] = React.useState(false);
     const classes = useStyles();
-    const router = useRouter()
+    const router = useRouter();
+    const dispatch = useDispatch();
+    const selector = useSelector(selectByIds);
     const handleChange = (event: React.SyntheticEvent, newValue: string) => {
         setValue(newValue);
+        dispatch(getRecordById());
     };
 
     return (
-       <Box className={classes.root} justifyContent="center" alignContent={'center'} >
+        <Box className={classes.root} justifyContent="center" alignContent={'center'} >
+
             {router.pathname === '/' ?
                 <Grid item xs={12} >
-                        <Searchbar setShowHcp={setShowHcp} />
-                    </Grid>
+                  
+                    <Searchbar setShowHcp={setShowHcp} />
+                </Grid>
                 :
                 <Grid item xs={12} alignContent="flex-start" justifyContent={'flex-start'}>
                     <Grid container>
                         <Grid item xs={2}></Grid>
                         <Grid item xs={8}>
-                        <TabContext value={value}>
-                    <Box sx={{ width: '100%', bgcolor: 'background.paper' }}>
-                        <Tabs value={value} onChange={handleChange} centered  className={classes.tabs}>
-                            <Tab iconPosition="start" icon={<GroupWorkIcon />} label="Organization (HCO)" value="1" />
-                            <Tab iconPosition="start" icon={<MedicalServicesIcon />} value="2" label="Facility (HCF)" />
-                            <Tab iconPosition="start" icon={<MedicalServicesIcon />}   value="3" label="Professional (HCP)" />
-                        </Tabs>
-                    </Box>
+                            <TabContext value={value}>
+                                <Box sx={{ width: '100%', bgcolor: 'background.paper' }}>
+                                    <Tabs value={value} onChange={handleChange} centered className={classes.tabs}>
+                                        <Tab iconPosition="start" icon={<GroupWorkIcon />} label="Organization (HCO)" value="1" />
+                                        <Tab iconPosition="start" icon={<MedicalServicesIcon />} value="2" label="Facility (HCF)" />
+                                        <Tab iconPosition="start" icon={<MedicalServicesIcon />} value="3" label="Professional (HCP)" />
+                                    </Tabs>
+                                </Box>
 
-                    <TabPanel value="1"><Grid container rowSpacing={1} pl={8} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
-                        <Grid item xs={6}>
-                            <Item>{`Records ${WorkBasket.organizationRows.length}`}</Item>
-                        </Grid>
-                        <Grid item xs={3}>
-                            <ItemRight>Filter By  </ItemRight>
-                        </Grid>
-                        <Grid item xs={3}>
-                            <ItemRight> <FilterDropdown></FilterDropdown> </ItemRight>
-                        </Grid>
-                        <Grid item xs={12}>
-                            <ItemCenter><CustomTable rows={WorkBasket.organizationRows} columns={WorkBasket.organizationColumns} /></ItemCenter>
-                        </Grid>
+                                <TabPanel value="1"><Grid container rowSpacing={1} pl={8} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
+                                    <Grid item xs={6}>
+                                        <Item>{`Records ${WorkBasket.organizationRows.length}`}</Item>
+                                    </Grid>
+                                    <Grid item xs={3}>
+                                        <ItemRight>Filter By  </ItemRight>
+                                    </Grid>
+                                    <Grid item xs={3}>
+                                        <ItemRight> <FilterDropdown></FilterDropdown> </ItemRight>
+                                    </Grid>
+                                    <Grid item xs={12}>
+                                        <ItemCenter><CustomTable rows={WorkBasket.organizationRows} columns={WorkBasket.organizationColumns} /></ItemCenter>
+                                    </Grid>
 
-                    </Grid></TabPanel>
-                    <TabPanel value="2"><Grid container rowSpacing={1} pl={8} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
-                        <Grid item xs={6}>
-                            <Item>{`Records ${WorkBasket.facilityRows.length}`}</Item>
-                        </Grid>
-                        <Grid item xs={6}>
-                            <ItemRight>Filter By </ItemRight>
-                        </Grid>
-                        <Grid item xs={12}>
-                            <ItemCenter><CustomTable rows={WorkBasket.facilityRows} columns={WorkBasket.facilityColumns} /></ItemCenter>
-                        </Grid>
+                                </Grid></TabPanel>
+                                <TabPanel value="2"><Grid container rowSpacing={1} pl={8} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
+                                    <Grid item xs={6}>
+                                        <Item>{`Records ${WorkBasket.facilityRows.length}`}</Item>
+                                    </Grid>
+                                    <Grid item xs={6}>
+                                        <ItemRight>Filter By </ItemRight>
+                                    </Grid>
+                                    <Grid item xs={12}>
+                                        <ItemCenter><CustomTable rows={WorkBasket.facilityRows} columns={WorkBasket.facilityColumns} /></ItemCenter>
+                                    </Grid>
 
-                    </Grid></TabPanel>
+                                </Grid></TabPanel>
 
-                    <TabPanel value="3">
-                        <Grid container pl={8} spacing={2}>
+                                <TabPanel value="3">
+                                    <Grid container pl={8} spacing={2}>
 
-                            <Grid item xs={12} md={12}>
-                                <Item>  <TextField
-                                    fullWidth
-                                    label="Name"
-                                    id="outlined-size-small"
+                                        <Grid item xs={12} md={12}>
+                                            <Item>  <TextField
+                                                fullWidth
+                                                label="Name"
+                                                id="outlined-size-small"
 
-                                    size="small"
-                                /></Item>
-                            </Grid>
-                            <Grid item xs={6} md={6}>
-                                <Item> <TextField
-                                    fullWidth
-                                    label="NPI"
-                                    id="outlined-size-small"
+                                                size="small"
+                                            /></Item>
+                                        </Grid>
+                                        <Grid item xs={6} md={6}>
+                                            <Item> <TextField
+                                                fullWidth
+                                                label="NPI"
+                                                id="outlined-size-small"
 
-                                    size="small"
-                                /></Item>
-                            </Grid>
-                            <Grid item xs={6} md={6}>
-                                <Item> <TextField
-                                    fullWidth
-                                    label="Tax ID"
-                                    id="outlined-size-small"
+                                                size="small"
+                                            /></Item>
+                                        </Grid>
+                                        <Grid item xs={6} md={6}>
+                                            <Item> <TextField
+                                                fullWidth
+                                                label="Tax ID"
+                                                id="outlined-size-small"
 
-                                    size="small"
-                                /></Item>
-                            </Grid>
-                            <Grid item xs={6} md={6}>
-                                <Item>  <Select
-                                    labelId="demo-simple-select-label"
-                                    id="demo-simple-select"
-                                    value={"PCP"}
-                                    label="Type Of Provider"
-                                    size="small"
-                                    fullWidth
+                                                size="small"
+                                            /></Item>
+                                        </Grid>
+                                        <Grid item xs={6} md={6}>
+                                            <Item>  <Select
+                                                labelId="demo-simple-select-label"
+                                                id="demo-simple-select"
+                                                value={"PCP"}
+                                                label="Type Of Provider"
+                                                size="small"
+                                                fullWidth
 
-                                >
-                                    <MenuItem value={"PCP"}>PCP</MenuItem>
+                                            >
+                                                <MenuItem value={"PCP"}>PCP</MenuItem>
 
-                                </Select></Item>
-                            </Grid>
-                            <Grid item xs={6} md={6}>
-                                <Item>  <Select
-                                    labelId="demo-simple-select-label"
-                                    id="demo-simple-select"
-                                    value={"PCP"}
-                                    label="Type Of Provider"
-                                    size="small"
-                                    fullWidth
+                                            </Select></Item>
+                                        </Grid>
+                                        <Grid item xs={6} md={6}>
+                                            <Item>  <Select
+                                                labelId="demo-simple-select-label"
+                                                id="demo-simple-select"
+                                                value={"PCP"}
+                                                label="Type Of Provider"
+                                                size="small"
+                                                fullWidth
 
-                                >
-                                    <MenuItem value={"PCP"}>PCP</MenuItem>
+                                            >
+                                                <MenuItem value={"PCP"}>PCP</MenuItem>
 
-                                </Select></Item>
-                            </Grid>
-                            <Grid item xs={6} md={6}>
-                                <Item>  <Select
-                                    labelId="demo-simple-select-label"
-                                    id="demo-simple-select"
-                                    value={"IM"}
-                                    label="Speciality"
-                                    size="small"
-                                    fullWidth
+                                            </Select></Item>
+                                        </Grid>
+                                        <Grid item xs={6} md={6}>
+                                            <Item>  <Select
+                                                labelId="demo-simple-select-label"
+                                                id="demo-simple-select"
+                                                value={"IM"}
+                                                label="Speciality"
+                                                size="small"
+                                                fullWidth
 
-                                >
-                                    <MenuItem value={"IM"}>Internal Medicine</MenuItem>
+                                            >
+                                                <MenuItem value={"IM"}>Internal Medicine</MenuItem>
 
-                                </Select></Item>
-                            </Grid>
-                            <Grid item xs={6} md={6}>
-                                <Item> <TextField
-                                    fullWidth
-                                    label="Phn No"
-                                    id="outlined-size-small"
+                                            </Select></Item>
+                                        </Grid>
+                                        <Grid item xs={6} md={6}>
+                                            <Item> <TextField
+                                                fullWidth
+                                                label="Phn No"
+                                                id="outlined-size-small"
 
-                                    size="small"
-                                /></Item>
-                            </Grid>
-                            <Grid item xs={6} md={6}>
-                                <Item> <TextField
-                                    fullWidth
-                                    label="License"
-                                    id="outlined-size-small"
+                                                size="small"
+                                            /></Item>
+                                        </Grid>
+                                        <Grid item xs={6} md={6}>
+                                            <Item> <TextField
+                                                fullWidth
+                                                label="License"
+                                                id="outlined-size-small"
 
-                                    size="small"
-                                /></Item>
-                            </Grid>
-                            <Grid item xs={6} md={6}>
-                                <Item> <TextField
-                                    fullWidth
-                                    label="LOB"
-                                    id="outlined-size-small"
+                                                size="small"
+                                            /></Item>
+                                        </Grid>
+                                        <Grid item xs={6} md={6}>
+                                            <Item> <TextField
+                                                fullWidth
+                                                label="LOB"
+                                                id="outlined-size-small"
 
-                                    size="small"
-                                /></Item>
-                            </Grid>
-                            <Grid item xs={6} md={6}>
-                                <Item> <TextField
-                                    fullWidth
-                                    label="Vendor Number"
-                                    id="outlined-size-small"
+                                                size="small"
+                                            /></Item>
+                                        </Grid>
+                                        <Grid item xs={6} md={6}>
+                                            <Item> <TextField
+                                                fullWidth
+                                                label="Vendor Number"
+                                                id="outlined-size-small"
 
-                                    size="small"
-                                /></Item>
-                            </Grid>
-                            <Grid item xs={6} md={6}>
-                                <Item>  <Select
-                                    labelId="demo-simple-select-label"
-                                    id="demo-simple-select"
-                                    value={"IM"}
-                                    label="Entity Type"
-                                    size="small"
-                                    fullWidth
+                                                size="small"
+                                            /></Item>
+                                        </Grid>
+                                        <Grid item xs={6} md={6}>
+                                            <Item>  <Select
+                                                labelId="demo-simple-select-label"
+                                                id="demo-simple-select"
+                                                value={"IM"}
+                                                label="Entity Type"
+                                                size="small"
+                                                fullWidth
 
-                                >
-                                    <MenuItem value={"IM"}>Select</MenuItem>
+                                            >
+                                                <MenuItem value={"IM"}>Select</MenuItem>
 
-                                </Select></Item>
-                            </Grid>
-                            <Grid item xs={6} md={6}>
-                                <Item> <TextField
-                                    fullWidth
-                                    label="Medicare #"
-                                    id="outlined-size-small"
+                                            </Select></Item>
+                                        </Grid>
+                                        <Grid item xs={6} md={6}>
+                                            <Item> <TextField
+                                                fullWidth
+                                                label="Medicare #"
+                                                id="outlined-size-small"
 
-                                    size="small"
-                                /></Item>
-                            </Grid>
-                            <Grid item xs={6} md={6}>
-                                <Item> <TextField
-                                    fullWidth
-                                    label="Mediacid"
-                                    id="outlined-size-small"
+                                                size="small"
+                                            /></Item>
+                                        </Grid>
+                                        <Grid item xs={6} md={6}>
+                                            <Item> <TextField
+                                                fullWidth
+                                                label="Mediacid"
+                                                id="outlined-size-small"
 
-                                    size="small"
-                                /></Item>
-                            </Grid>
-                            <Grid item xs={4} md={4}>
+                                                size="small"
+                                            /></Item>
+                                        </Grid>
+                                        <Grid item xs={4} md={4}>
 
-                            </Grid>
-                            <Grid item xs={4} md={4}>
-                                <Item> <CustomButton></CustomButton> </Item>
-                            </Grid>
-                            <Grid item xs={4} md={4}>
+                                        </Grid>
+                                        <Grid item xs={4} md={4}>
+                                            <Item> <CustomButton></CustomButton> </Item>
+                                        </Grid>
+                                        <Grid item xs={4} md={4}>
 
-                            </Grid>
-                        </Grid>
+                                        </Grid>
+                                    </Grid>
 
 
-                    </TabPanel>
+                                </TabPanel>
 
-                </TabContext>
+                            </TabContext>
                         </Grid>
                         <Grid item xs={2}></Grid>
                     </Grid>
-                
+
                 </Grid>
             }
 

@@ -19,7 +19,7 @@ const useStyles = makeStyles({
     position: "relative",
   },
 
-  tabsSlideBtnActive:{
+  tabsSlideBtnActive: {
     position: "relative",
     height: 40,
     transform: "rotate(90deg)",
@@ -118,7 +118,7 @@ const useStyles = makeStyles({
     fontWeight: 500,
     marginBottom: "10px",
     fontSize: "20px",
-    marginBottom: "25px", 
+    marginBottom: "25px",
     color: "#003863",
     "& span": {
       height: "2px",
@@ -136,14 +136,14 @@ const useStyles = makeStyles({
 
   },
 
-  panelInfoCardContent:{
-    display:"flex",
-    flexDirection:"column",
-    marginBottom:"15px",
-     
-    "& span":{
-          fontSize:"12px",
-          color:"#ccc",
+  panelInfoCardContent: {
+    display: "flex",
+    flexDirection: "column",
+    marginBottom: "15px",
+
+    "& span": {
+      fontSize: "12px",
+      color: "#ccc",
     },
     "& label": {
       fontSize: "16px",
@@ -166,10 +166,10 @@ const useStyles = makeStyles({
     }
   },
 
-  panelInfoCardContentHolder:{
-    borderLeft:"1px #ccc solid",
-    paddingLeft:"15px",
-    height:"90%"
+  panelInfoCardContentHolder: {
+    borderLeft: "1px #ccc solid",
+    paddingLeft: "15px",
+    height: "90%"
   },
 
 
@@ -248,7 +248,7 @@ export default function VerticalTabs() {
             <Tab label="Documents" {...a11yProps(7)} />
           </Tabs>
         }
-        
+
         <IconButton onClick={() => setShowTabs(!showTabs)} className={showTabs === true ? classes.tabsSlideBtnActive : classes.tabsSlideBtn}>
           <BarChartIcon style={{ color: "#008BBF" }} />
         </IconButton>
@@ -388,65 +388,185 @@ export default function VerticalTabs() {
           {/* inner code end panel */}
 
         </TabPanel>
-        <TabPanel value={value} index={1}  className={classes.tabsPanels}>
+        <TabPanel value={value} index={1} className={classes.tabsPanels}>
 
 
-            {/* second tab start panel */}
+          {/* second tab start panel */}
 
-            <Card elevation={2} className={classes.panelInfoCard}>
-              <Grid container spacing={2}>
-                <Grid item md={2}>
-                  <Box className={classes.panelInfoCardContent}>
-                      <h3>Internal Medicne</h3>
-                  </Box>
-                  <Box className={classes.panelInfoCardContent}>
-                    <span>Dgree preiod</span>
-                    <label>12/06/2022</label>
-                  </Box>
-                </Grid>
-                <Grid item md={6}>
-                  
-                  <Box className={classes.panelInfoCardContent}>
-                    <span>Dgree Name</span>
-                    <label>M.D in Sleep Medicne</label>
-                  </Box>
+          <Card elevation={2} className={classes.panelInfoCard}>
+            <Grid container spacing={2}>
+              <Grid item md={2}>
+                <Box className={classes.panelInfoCardContent}>
+                  <h3>Internal Medicne</h3>
+                </Box>
+                <Box className={classes.panelInfoCardContent}>
+                  <span>Dgree preiod</span>
+                  <label>12/06/2022</label>
+                </Box>
+              </Grid>
+              <Grid item md={6}>
 
-                  <Box className={classes.panelInfoCardContent}>
-                    <span>Certification </span>
-                    <label>American Board of Medical Speatility  (ABMS)</label>
-                  </Box>
-                  
+                <Box className={classes.panelInfoCardContent}>
+                  <span>Dgree Name</span>
+                  <label>M.D in Sleep Medicne</label>
+                </Box>
 
-                </Grid>
-                <Grid item md={2}>
+                <Box className={classes.panelInfoCardContent}>
+                  <span>Certification </span>
+                  <label>American Board of Medical Speatility  (ABMS)</label>
+                </Box>
+
+
+              </Grid>
+              <Grid item md={2}>
                 <div className={classes.panelInfoCardContentHolder}>
-                <div className={classes.cardTitle}>More Info <span></span></div>
-                  <Box className={classes.panelInfoCardContent}>                   
+                  <div className={classes.cardTitle}>More Info <span></span></div>
+                  <Box className={classes.panelInfoCardContent}>
                     <label>Recideanship</label>
                     <label>Intersheep</label>
                     <label>Fellow Ship</label>
                   </Box>
-                  </div>
-                </Grid>
-                <Grid item md={2}>
+                </div>
+              </Grid>
+              <Grid item md={2}>
                 <div className={classes.panelInfoCardContentHolder}>
-                <div className={classes.cardTitle}>Verification <span></span></div>
-                    <Box className={classes.panelInfoCardContent}>                  
+                  <div className={classes.cardTitle}>Verification <span></span></div>
+                  <Box className={classes.panelInfoCardContent}>
                     <span>Specility</span>
                     <label>Ayana Kelly</label>
                   </Box>
-                  <Box className={classes.panelInfoCardContent}>                  
+                  <Box className={classes.panelInfoCardContent}>
                     <span>Date & Time</span>
                     <label>21/04/2022 - 22/04/2022</label>
                   </Box>
-                  </div>
+                </div>
 
-                </Grid>
-              </Grid>            
+              </Grid>
+            </Grid>
           </Card>
 
           {/* second tab end panel */}
+          <Card elevation={2} sx={{ marginTop: '10px' }} className={classes.panelInfoCard}>
+            <Grid container spacing={2}>
+              <Grid item md={2}>
+                <Box className={classes.panelInfoCardContent}>
+                  <h3>OBGYN</h3>
+                </Box>
+                <Box className={classes.panelInfoCardContent}>
+                  <span>Degree preiod</span>
+                  <label>12/06/2022</label>
+                </Box>
+              </Grid>
+              <Grid item md={6}>
 
+                <Box className={classes.panelInfoCardContent}>
+                  <span>Degree Name</span>
+                  <label>M.D in Sleep Medicne</label>
+                </Box>
+
+                <Box className={classes.panelInfoCardContent}>
+                  <span>Certification </span>
+                  <label>American Board of Medical Speatility  (ABMS)</label>
+                </Box>
+
+
+              </Grid>
+              <Grid item md={2}>
+                <div className={classes.panelInfoCardContentHolder}>
+                  <div className={classes.cardTitle}>More Info <span></span></div>
+                  <Box className={classes.panelInfoCardContent}>
+                    <label>Recideanship</label>
+                    <label>Intersheep</label>
+                    <label>Fellow Ship</label>
+                  </Box>
+                </div>
+              </Grid>
+              <Grid item md={2}>
+                <div className={classes.panelInfoCardContentHolder}>
+                  <div className={classes.cardTitle}>Verification <span></span></div>
+                  <Box className={classes.panelInfoCardContent}>
+                    <span>Specility</span>
+                    <label>Ayana Kelly</label>
+                  </Box>
+                  <Box className={classes.panelInfoCardContent}>
+                    <span>Date & Time</span>
+                    <label>21/04/2022 - 22/04/2022</label>
+                  </Box>
+                </div>
+
+              </Grid>
+            </Grid>
+          </Card>
+
+
+          <Card elevation={2} sx={{ marginTop: '10px' }} className={classes.panelInfoCard}>
+            <Grid container spacing={2}>
+              <Grid item md={12}>
+                <Box className={classes.panelInfoCardContent}>
+                  <h3>Credential</h3>
+                </Box>
+
+              </Grid>
+              <Grid item md={3}>
+                <Box className={classes.panelInfoCardContent}>
+                  <span>Specilality</span>
+                  <label>Internal Medicine</label>
+                </Box>
+              </Grid>
+              <Grid item md={3}>
+                <Box className={classes.panelInfoCardContent}>
+                  <span>Effective Period </span>
+                  <label>05/20/2009 - 05/20/2029</label>
+                </Box>
+              </Grid>
+              <Grid item md={3}>
+                <Box className={classes.panelInfoCardContent}>
+                  <span>Degree Name </span>
+                  <label>M.D. in Sleep Medicine</label>
+                </Box>
+              </Grid>
+              <Grid item md={3}>
+                <Box className={classes.panelInfoCardContent}>
+                  <span>Degree Period </span>
+                  <label>07/31/1999 - 07/31/2001</label>
+                </Box>
+              </Grid>
+              <Grid item md={3}>
+                <Box className={classes.panelInfoCardContent}>
+                  <span>Profession Training </span>
+                  <label>Westborough, MA.</label>
+                </Box>
+              </Grid>
+              <Grid item md={3}>
+                <Box className={classes.panelInfoCardContent}>
+                  <span>License State </span>
+                  <label>New York</label>
+                </Box>
+              </Grid>
+              <Grid item md={3}>
+                <Box className={classes.panelInfoCardContent}>
+                  <span>Educational Institution </span>
+                  <label>New York State University</label>
+                </Box>
+              </Grid>
+            </Grid>
+            <Grid container spacing={2}>
+              <Grid item md={12}>
+                <Box className={classes.panelInfoCardContent}>
+                  <h3>Education/Training</h3>
+                </Box>
+
+              </Grid>
+            </Grid>
+            <Grid container spacing={2}>
+              <Grid item md={12}>
+                <Box className={classes.panelInfoCardContent}>
+                  <h3>Degree Info</h3>
+                </Box>
+
+              </Grid>
+            </Grid>
+          </Card>
         </TabPanel>
         <TabPanel value={value} index={2} className={classes.tabsPanels}>
           Item Three
