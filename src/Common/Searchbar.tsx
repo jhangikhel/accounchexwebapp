@@ -6,7 +6,8 @@ import IconButton from '@mui/material/IconButton';
 import SearchIcon from '@mui/icons-material/Search';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import { makeStyles } from '@mui/styles';
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/router';
+import Sarchresult from './Searchresult';
 
 
 
@@ -21,8 +22,9 @@ const useStyles = makeStyles({
         padding: '2px 4px ',
         display: 'flex',
         alignItems: 'center',
-        width: '500px',
+        width: '700px',
         margin:"auto",
+        position:"relative",
     },
     searchIcon: {
         color: "#529535",
@@ -77,6 +79,8 @@ export default function Searchbar({ setShowHcp = null }: { setShowHcp: any }) {
                 <IconButton className={classes.moreIcon} onClick={() => setShowHcp === null ? router.push('/') : setHeader()} color="primary" sx={{ p: '7px' }} aria-label="directions">
                     <MoreHorizIcon style={{ fontSize: "25px" }} />
                 </IconButton>
+
+                <Sarchresult />
             </Paper>
 
 
