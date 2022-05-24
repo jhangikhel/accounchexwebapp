@@ -15,29 +15,47 @@ const useStyles = makeStyles({
     searchResultHolder: {
         border: "1px #529535 solid",
         borderRadius: "20px",
-        padding: '2px 4px ',
+        padding: '15px 4px ',
         position:"absolute",
         left:"0px",
-        top:"100%",
-        maxHeight:"300px",
-        width:"100%",
+        top:"calc(100% + 2px)",
+        maxHeight:"400px",
+        width:"100%", 
+        overflow:"auto",
     },
+
+
+     
     
 
     searchResulTtle:{
         color: "#003863",
         opacity: "0.5",
-        fontWeight:500,
+        fontWeight:600,
         borderBottom:"1px #ccc solid",
         borderTop:"1px #ccc solid",
-        padding:"5px 4px",
+        padding:"12px 0px",
         fontSize:"16px",
+
+        "&:first-child" :{
+            borderTop:"0px #ccc solid",
+        },
+
+        "& div" :{
+            paddingLeft:"15px",
+            paddingRight:"15px"
+        },
     },
 
     searchResult:{
-        color: "#003863",
-        padding:"5px 4px",
+        color: "#000000",
+        padding:"12px 0px",
         fontSize:"18px",
+
+        "& div" :{
+            paddingLeft:"15px",
+            paddingRight:"15px"
+        },
          
         
     }
@@ -55,7 +73,7 @@ export default function Searchbar({ setShowHcp = null }: { setShowHcp: any }) {
         <>
             <Box elevation={0} className={classes.searchResultHolder}  >            
                 {/*----- start loop here ------------ */}
-               <Grid container>
+               <Grid container className={classes.searchResultInner}>
                    <Grid item xs="12" className={classes.searchResulTtle} >
                         <Grid container>
                             <Grid items xs="4" ms="4">Phone No.</Grid>
@@ -80,19 +98,40 @@ export default function Searchbar({ setShowHcp = null }: { setShowHcp: any }) {
                             <Grid items xs="8" ms="8" style={{textAlign:"right"}}>Facility - 50 || Organization - 129 || Professional - 1</Grid>
                         </Grid>
                    </Grid>
+                   
+                </Grid> 
+                   {/*----- end loop here ------------ */}
+
+    {/*----- start loop here ------------ */}
+            <Grid container className={classes.searchResultInner} style={{borderTop:"1px #ccc solid", marginTop:"10px"}}>
+                   <Grid item xs="12" className={classes.searchResulTtle} >
+                        <Grid container>
+                            <Grid items xs="4" ms="4">Phone No.</Grid>
+                            <Grid items xs="8" ms="8"  style={{textAlign:"right"}}>Facility - 50 || Organization - 129 || Professional - 1</Grid>
+                        </Grid>
+                   </Grid>
                    <Grid item xs="12" className={classes.searchResult}>
                         <Grid container>
                             <Grid items xs="4" ms="4">512-123-9876</Grid>
                             <Grid items xs="8" ms="8"  style={{textAlign:"right"}}>Facility - 50 || Organization - 129 || Professional - 1</Grid>
                         </Grid>
                    </Grid>
-                         
-
-
-                   
+                   <Grid item xs="12" className={classes.searchResult}>
+                        <Grid container>
+                            <Grid items xs="4" ms="4">512-123-9876</Grid>
+                            <Grid items xs="8" ms="8"  style={{textAlign:"right"}}>Facility - 50 || Organization - 129 || Professional - 1</Grid>
+                        </Grid>
+                   </Grid>
+                   <Grid item xs="12" className={classes.searchResult}>
+                        <Grid container>
+                            <Grid items xs="4" ms="4">512-123-9876</Grid>
+                            <Grid items xs="8" ms="8" style={{textAlign:"right"}}>Facility - 50 || Organization - 129 || Professional - 1</Grid>
+                        </Grid>
+                   </Grid>
                    
                 </Grid> 
                    {/*----- end loop here ------------ */}
+
             </Box>
         </>
     );
