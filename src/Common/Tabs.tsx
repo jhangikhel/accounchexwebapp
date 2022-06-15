@@ -24,7 +24,7 @@ import DirectionsIcon from '@mui/icons-material/Directions';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import CustomButton from './CustomButton';
 import { makeStyles } from '@mui/styles';
-import { Button, colors } from '@mui/material';
+import { Button, colors, Typography } from '@mui/material';
 import Searchbar from './Searchbar';
 import { useRouter } from 'next/router'
 import { useDispatch, useSelector } from 'react-redux';
@@ -34,11 +34,11 @@ import { getRecordById, selectByIds } from '../store/reducers/homeReducers';
 
 const useStyles = makeStyles({
     root: {
-        border: 0,
-        color: 'white',
+        border: 0,       
         height: "100%",
         width: "100%",
         display: "flex",
+        background:"#fff",
     },
 
     inputHolder: {
@@ -124,7 +124,7 @@ export default function CenteredTabs() {
 
     return (
         <Box className={classes.root} justifyContent="center" alignContent={'center'} >
-
+ 
             {router.pathname === '/' ?
                 <Grid item xs={12} >
                   
@@ -145,32 +145,35 @@ export default function CenteredTabs() {
                                 </Box>
 
                                 <TabPanel value="1"><Grid container rowSpacing={1} pl={8} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
-                                    <Grid item xs={6}>
-                                        <Item>{`Records ${WorkBasket.organizationRows.length}`}</Item>
+                                 
+
+                                    <Grid item xs={6} md={6} >
+                                        <Typography  variant='body' component={"label"} sx={{color: "#5E2854", fontSize:"24px"}} >{`Records ${WorkBasket.organizationRows.length}`}</Typography>
                                     </Grid>
-                                    <Grid item xs={3}>
-                                        <ItemRight>Filter By  </ItemRight>
+                                    <Grid item xs={6} md={6} justifyContent="flex-end" style={{ textAlign:"right"}}>
+                                       <Typography variant='body' component={"span"}>  <FilterDropdown /> </Typography>
                                     </Grid>
-                                    <Grid item xs={3}>
-                                        <ItemRight> <FilterDropdown></FilterDropdown> </ItemRight>
-                                    </Grid>
+
+
+
                                     <Grid item xs={12}>
                                         <ItemCenter><CustomTable rows={WorkBasket.organizationRows} columns={WorkBasket.organizationColumns} /></ItemCenter>
                                     </Grid>
 
                                 </Grid></TabPanel>
-                                <TabPanel value="2"><Grid container rowSpacing={1} pl={8} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
-                                    <Grid item xs={6}>
-                                        <Item>{`Records ${WorkBasket.facilityRows.length}`}</Item>
+                                <TabPanel value="2">
+                                    <Grid container rowSpacing={1} pl={8} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>                                    
+                                    <Grid item xs={6} md={6} >
+                                        <Typography  variant='body' component={"label"} sx={{color: "#5E2854", fontSize:"24px"}} >{`Records ${WorkBasket.facilityRows.length}`}</Typography>
                                     </Grid>
-                                    <Grid item xs={6}>
-                                        <ItemRight>Filter By </ItemRight>
+                                    <Grid item xs={6} md={6} justifyContent="flex-end" style={{ textAlign:"right"}}>
+                                       <Typography variant='body' component={"span"}>  <FilterDropdown /> </Typography>
                                     </Grid>
                                     <Grid item xs={12}>
                                         <ItemCenter><CustomTable rows={WorkBasket.facilityRows} columns={WorkBasket.facilityColumns} /></ItemCenter>
                                     </Grid>
-
-                                </Grid></TabPanel>
+                                  </Grid>
+                                </TabPanel>
 
                                 <TabPanel value="3">
                                     <Grid container pl={8} spacing={2}>
