@@ -23,8 +23,8 @@ const useStyles = makeStyles({
         display: 'flex',
         alignItems: 'center',
         width: '700px',
-        margin:"auto",
-        position:"relative",
+        margin: "auto",
+        position: "relative",
     },
     searchIcon: {
         color: "#529535",
@@ -50,13 +50,22 @@ const useStyles = makeStyles({
 export default function Searchbar({ setShowHcp = null }: { setShowHcp: any }) {
 
     const classes = useStyles();
-    const router = useRouter()
+    const router = useRouter();
+    const [showSearchResult, setShowSearchResult] = React.useState(false);
+    const [inputValue, setInputValue] = React.useState('');
     const setHeader = () => {
-        router.push('/Home') 
+        router.push('/Home')
     }
     React.useEffect(() => {
         sessionStorage.clear();
-    }, [])
+    }, []);
+    React.useEffect(() => {
+        if (inputValue.length === 0)
+            setShowSearchResult(false)
+        else
+            setShowSearchResult(true)
+    }, [inputValue]);
+
     return (
 
         <>
@@ -72,6 +81,10 @@ export default function Searchbar({ setShowHcp = null }: { setShowHcp: any }) {
                     sx={{ ml: 1, flex: 1 }}
                     placeholder=""
                     inputProps={{ 'aria-label': '' }}
+                    onChange={(e) => {
+                        setInputValue(e.target.value)
+                    }}
+                    value={inputValue}
                 />
 
                 <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />
@@ -79,8 +92,8 @@ export default function Searchbar({ setShowHcp = null }: { setShowHcp: any }) {
                 <IconButton className={classes.moreIcon} onClick={() => setShowHcp === null ? router.push('/') : setHeader()} color="primary" sx={{ p: '7px' }} aria-label="directions">
                     <MoreHorizIcon style={{ fontSize: "25px" }} />
                 </IconButton>
+                {showSearchResult === true && <Sarchresult />}
 
-                <Sarchresult />
             </Paper>
 
 
