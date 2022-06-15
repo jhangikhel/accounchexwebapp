@@ -3,34 +3,54 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
+import Button from '@mui/material/Button';
 
-export default function FilterDropdown() {
-  const [age, setAge] = React.useState('');
+export default function ControlledOpenSelect() {
+  const [age, setAge] = React.useState<string | number>('');
+  const [open, setOpen] = React.useState(false);
 
-  const handleChange = (event: SelectChangeEvent) => {
+  const handleChange = (event: SelectChangeEvent<typeof age>) => {
     setAge(event.target.value);
   };
 
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
   return (
-    <div>
-      <FormControl sx={{ m: 1, minWidth: 80,height:'30px' }}>
-        <InputLabel id="demo-simple-select-autowidth-label">Age</InputLabel>
+    <>
+      
+     
+      Filter By : 
         <Select
-          labelId="demo-simple-select-autowidth-label"
-          id="demo-simple-select-autowidth"
+        sx={{ width: 100, border:0,}}
+          labelId="demo-controlled-open-select-label"
+          id="demo-controlled-open-select"
+          variant='standard'
+          defaultValue={"select value"}
+          open={open}
+          onClose={handleClose}
+          onOpen={handleOpen}
           value={age}
+          label="Node"
           onChange={handleChange}
-          autoWidth
-          label="Age"
+          inputProps={{
+            
+            disableUnderline: true, // <== added this
+          }}
         >
-          <MenuItem value="">
-            <em>None</em>
+          <MenuItem value={0}>
+            <em>All Result</em>
           </MenuItem>
-          <MenuItem value={10}>Twenty</MenuItem>
-          <MenuItem value={21}>Twenty one</MenuItem>
-          <MenuItem value={22}>Twenty one and a half</MenuItem>
+          <MenuItem value={10}>Ten</MenuItem>
+          <MenuItem value={20}>Twenty</MenuItem>
+          <MenuItem value={30}>Thirty</MenuItem>
         </Select>
-      </FormControl>
-    </div>
+       
+    </>
   );
 }
