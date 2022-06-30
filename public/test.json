@@ -1,0 +1,17 @@
+{
+  "data": [
+    {
+      "symbol": "MSFT",
+      "name": "Microsoft Corporation",
+      "lastPrice": "260.26 USD",
+      "change": 3.78,
+      "changePercent": 1.47,
+      "timestamp": "10:00",
+      "low": 255.76,
+      "high": 261.97,
+      "open": 257.59,
+      "volume": "33.3M",
+      "marketCap": "550.0B"
+    }
+  ]
+}
