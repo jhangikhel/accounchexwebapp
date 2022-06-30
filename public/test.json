@@ -12,6 +12,19 @@
       "open": 257.59,
       "volume": "33.3M",
       "marketCap": "550.0B"
+    },
+     {
+      "symbol": "AAPL",
+      "name": "Apple Inc",
+      "lastPrice": "139.23 USD",
+      "change":-1.79,
+      "changePercent": -1.30,
+      "timestamp": "10:00",
+      "low": 136.67,
+      "high":140.67,
+      "open": 137.46,
+      "volume": "33.3M",
+      "marketCap": "2.25LCr"
     }
   ]
 }
